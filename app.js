@@ -86,7 +86,8 @@ class Car {
     mouseX;
     mouseY;
     angleInDeg = 0;
-    x = 20;
+    x = 4;
+    angleDif = 4;
     difX = 10;
     difY = 0;
 
@@ -103,12 +104,12 @@ class Car {
     }
 
     frontLeftSensor = {
-        width: 200,
+        width: 180,
         height: 1,
     };
 
     frontRightSensor = {
-        width: 200,
+        width: 180,
         height: 1,
     };
 
@@ -127,7 +128,7 @@ class Car {
 
     movement = (e) => {
         if(e.key == "a") {
-            this.angleInDeg += 10;
+            this.angleInDeg += this.angleDif;
 
             this.rotateCar(this.angleInDeg);
 
@@ -136,7 +137,7 @@ class Car {
         }
 
         else if(e.key == "d") {
-            this.angleInDeg -= 10;
+            this.angleInDeg -= this.angleDif;
 
             this.rotateCar(this.angleInDeg);
 
@@ -379,7 +380,7 @@ const ai = new AI();
 
 // ai.move();
 
-let interval = setInterval(ai.makeDecision, 1000 / 15);
+let interval = setInterval(ai.makeDecision, 1000 / 30);
 
 // ROTATE BY MOUSE POSITIONS
 // document.addEventListener('mousemove', (e) => {
